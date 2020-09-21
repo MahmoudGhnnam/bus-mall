@@ -1,0 +1,14 @@
+header img{
+    float: left;
+    width: 200px;
+    height: 100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+header{
+    background-color: orangered;
+    height: 90px;
+}
