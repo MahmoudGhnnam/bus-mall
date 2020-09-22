@@ -1,4 +1,6 @@
 
+
+
 body{
     background-color: rgb(23, 83, 83);
 }
@@ -10,7 +12,7 @@ header{
 }
 
 #head h1{
-    color: lightcyan;
+    color: rgb(224, 255, 255);
     font-size: 100px;
     text-align: center;
     position: relative;
@@ -71,4 +73,23 @@ main img { height: 250px;
     main p{
         font-size: 20px;
         text-align: center;
+    }
+
+    #myChart{
+        background-color: black;
+       margin: 100px;
+       position: relative;
+       right: 100px;
+       bottom: 100px;
+       
+        
+    }
+
+    #chart{
+        border: transparent;
+        border: white;
+        border-style: solid;
+        height: 738px;
+        border-width:22px ;
+
     }
