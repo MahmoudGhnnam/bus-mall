@@ -51,14 +51,13 @@ function updateProduct() {
   localStorage.setItem('products', productString);
 }
 function getProduct() {
-  var productString = localStorage.getItem('products');
+  var productString = localStorage.getItem('productss');
   var productsArray = JSON.parse(productString);
   console.log('arr', productsArray);
   if (productsArray) {
     for (i = 0; i < productsArray.length; i++) {
       new Product(
         productsArray[i].name,
-        productsArray[i].extension,
         productsArray[i].path,
         productsArray[i].votes,
         productsArray[i].show
