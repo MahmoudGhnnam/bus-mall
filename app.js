@@ -41,6 +41,36 @@ for (let i = 0; i < prouductss.length; i++) {
 }
 console.log(Product.all);
 
+function updateProduct() {
+  var productString = JSON.stringify(Product.all);
+  localStorage.setItem('products', productString);
+}
+
+function updateProduct() {
+  var productString = JSON.stringify(Product.all);
+  localStorage.setItem('products', productString);
+}
+function getProduct() {
+  var productString = localStorage.getItem('products');
+  var productsArray = JSON.parse(productString);
+  console.log('arr', productsArray);
+  if (productsArray) {
+    for (i = 0; i < productsArray.length; i++) {
+      new Product(
+        productsArray[i].name,
+        productsArray[i].extension,
+        productsArray[i].path,
+        productsArray[i].votes,
+        productsArray[i].show
+      );
+
+    }
+    render();
+    getProduct();
+  }
+
+}
+
 function render() {
     var firstRandom = randomNumber(0, Product.all.length - 1);
     var secondRandom = randomNumber(0, Product.all.length - 1);
