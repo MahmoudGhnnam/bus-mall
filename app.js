@@ -1,4 +1,4 @@
-var prouductss = [
+var prouducts = [
     'bag',
     'banana',
     'bathroom',
@@ -28,7 +28,7 @@ const imagesSection = document.getElementById('images-section');
 var previousImages = [];
 
 
-function Product(prouducts,) {
+function Product(prouducts) {
     this.prouducts = prouducts;
     this.path = `img/${this.prouducts}.jpg`;
     this.votes = 0;
@@ -36,8 +36,8 @@ function Product(prouducts,) {
     Product.all.push(this);
 }
 Product.all = [];
-for (let i = 0; i < prouductss.length; i++) {
-    new Product(prouductss[i], [i])
+for (let i = 0; i < prouducts.length; i++) {
+    new Product(prouducts[i], [i])
 }
 console.log(Product.all);
 
@@ -45,19 +45,14 @@ function updateProduct() {
   var productString = JSON.stringify(Product.all);
   localStorage.setItem('products', productString);
 }
-
-function updateProduct() {
-  var productString = JSON.stringify(Product.all);
-  localStorage.setItem('products', productString);
-}
 function getProduct() {
-  var productString = localStorage.getItem('productss');
+  var productString = localStorage.getItem('products');
   var productsArray = JSON.parse(productString);
   console.log('arr', productsArray);
   if (productsArray) {
     for (i = 0; i < productsArray.length; i++) {
       new Product(
-        productsArray[i].name,
+        productsArray[i].prouducts,
         productsArray[i].path,
         productsArray[i].votes,
         productsArray[i].show
@@ -117,6 +112,13 @@ function clickHandler(event) {
     }
     render();
 
+    if (rounds === 25) {
+    
+        addechart();
+        imagesSection.removeEventListener('click', clickHandler);
+        updateProduct();
+      }
+
 
 }
 imagesSection.addEventListener('click', clickHandler);
@@ -129,18 +131,18 @@ function randomNumber(min, max) {
 
 function addechart() {
     var ctx = document.getElementById('myChart');
-    var prouductss = [];
+    var prouducts = [];
     var votes = [];
     var views = [];
     for (var i = 0; i < Product.all.length; i++) {
-        prouductss.push(Product.all[i].prouducts);
+        prouducts.push(Product.all[i].prouducts);
         votes.push(Product.all[i].votes);
         views.push(Product.all[i].show);
     }
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: prouductss,
+            labels: prouducts,
             datasets: [
                 {
                     label: 'Votes',
